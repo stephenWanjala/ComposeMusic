@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-//    id ("com.google.devtools.ksp") version ("1.8.20-1.0.10")
+    id ("com.google.devtools.ksp")
     id ("kotlin-parcelize")
 }
 
@@ -71,12 +71,14 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    implementation ("androidx.compose.material:material-icons-core")
+    implementation ("androidx.compose.material:material-icons-extended")
+
 
     val lifecycleVersion = "2.6.1"
     val navVersion = "2.6.0-alpha08"
     val coroutinesVersion ="1.6.4"
-//    val destinationsVersion ="1.7.41-beta"
-    val destinationsVersion ="1.91.51"
+    val destinationsVersion ="1.8.42-beta"
 //    media
     implementation ("androidx.media3:media3-exoplayer:1.1.0")
     implementation ("androidx.media3:media3-exoplayer-dash:1.1.0")
@@ -96,12 +98,16 @@ dependencies {
 
 
     //destinations lib
-//    implementation("io.github.raamcosta.compose-destinations:core:$destinationsVersion")
-//    ksp("io.github.raamcosta.compose-destinations:ksp:$destinationsVersion")
+    implementation("io.github.raamcosta.compose-destinations:core:$destinationsVersion")
+    ksp("io.github.raamcosta.compose-destinations:ksp:$destinationsVersion")
 
     kapt("com.google.dagger:hilt-compiler:2.47")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("com.google.dagger:hilt-android:2.47")
+    kapt ("androidx.hilt:hilt-compiler:1.0.0")
+
+
+    implementation ("com.google.accompanist:accompanist-permissions:0.30.1")
 
 }
 
