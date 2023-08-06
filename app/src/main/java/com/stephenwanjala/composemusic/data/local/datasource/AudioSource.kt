@@ -5,8 +5,9 @@ import android.content.Context
 import android.provider.MediaStore
 import androidx.annotation.WorkerThread
 import com.stephenwanjala.composemusic.domain.model.ModelAudio
+import dagger.hilt.android.qualifiers.ApplicationContext
 
-class AudioSource(private val context: Context) {
+class AudioSource(@ApplicationContext private val context: Context) {
     private val projection: Array<String> = arrayOf(
         MediaStore.Audio.AudioColumns.ALBUM,
         MediaStore.Audio.AudioColumns.DISPLAY_NAME,
