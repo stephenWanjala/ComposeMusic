@@ -77,12 +77,14 @@ dependencies {
 
     val lifecycleVersion = "2.6.1"
     val navVersion = "2.7.1"
-    val coroutinesVersion ="1.6.4"
+    val coroutinesVersion ="1.7.1"
     val destinationsVersion ="1.8.42-beta"
 //    media
     implementation ("androidx.media3:media3-exoplayer:1.1.1")
     implementation ("androidx.media3:media3-exoplayer-dash:1.1.1")
     implementation ("androidx.media3:media3-ui:1.1.1")
+    implementation ("androidx.media3:media3-session:1.1.1")
+
 
     //    coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
