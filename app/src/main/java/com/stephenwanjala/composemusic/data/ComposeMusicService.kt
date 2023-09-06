@@ -3,6 +3,7 @@ package com.stephenwanjala.composemusic.data
 import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.os.Bundle
 import androidx.media3.common.MediaItem
+import androidx.media3.datasource.cache.CacheDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.session.CommandButton
 import androidx.media3.session.MediaLibraryService
@@ -12,14 +13,21 @@ import androidx.media3.session.SessionResult
 import com.google.common.collect.ImmutableList
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
+import com.stephenwanjala.composemusic.data.local.datasource.ComposeMusicMediaSource
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class ComposeMusicService : MediaLibraryService() {
     private lateinit var libraryServiceCallBack: ComposeMediaLibraryServiceCallBack
+//
     @Inject
     lateinit var player: ExoPlayer
+//    @Inject
+//    lateinit var cacheDataSourceFactory: CacheDataSource.Factory
     private lateinit var customCommands: List<CommandButton>
+//    @Inject
+//    lateinit var mediaSource: ComposeMusicMediaSource
 
     companion object {
 
@@ -39,7 +47,7 @@ class ComposeMusicService : MediaLibraryService() {
         override fun onAddMediaItems(
             mediaSession: MediaSession,
             controller: MediaSession.ControllerInfo,
-            mediaItems: MutableList<MediaItem>
+            mediaItems: MutableList<MediaItem>,
         ): ListenableFuture<MutableList<MediaItem>> {
             return super.onAddMediaItems(mediaSession, controller, mediaItems)
         }
@@ -49,7 +57,7 @@ class ComposeMusicService : MediaLibraryService() {
             session: MediaSession,
             controller: MediaSession.ControllerInfo,
             customCommand: SessionCommand,
-            args: Bundle
+            args: Bundle,
         ): ListenableFuture<SessionResult> {
             if (CUSTOM_COMMAND_TOGGLE_SHUFFLE_MODE_ON == customCommand.customAction) {
                 // Enable shuffling.
