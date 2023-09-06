@@ -20,14 +20,16 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ComposeMusicService : MediaLibraryService() {
     private lateinit var libraryServiceCallBack: ComposeMediaLibraryServiceCallBack
-//
+
     @Inject
     lateinit var player: ExoPlayer
-//    @Inject
-//    lateinit var cacheDataSourceFactory: CacheDataSource.Factory
+
+    @Inject
+    lateinit var cacheDataSourceFactory: CacheDataSource.Factory
     private lateinit var customCommands: List<CommandButton>
-//    @Inject
-//    lateinit var mediaSource: ComposeMusicMediaSource
+
+    @Inject
+    lateinit var mediaSource: ComposeMusicMediaSource
 
     companion object {
 

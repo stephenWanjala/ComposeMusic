@@ -61,7 +61,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideCacheDatasourceFactory(
-        @ApplicationContext app: Application,
+        @ApplicationContext app: Context,
         factory: DataSource.Factory
     ): CacheDataSource.Factory {
         val cacheDir = File(app.cacheDir, "media")
@@ -79,7 +79,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideAudioSource(@ApplicationContext app: Application): AudioSource = AudioSource(app)
+    fun provideAudioSource(@ApplicationContext app: Context): AudioSource = AudioSource(app)
 
     @Provides
     @Singleton
