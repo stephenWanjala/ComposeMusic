@@ -84,6 +84,7 @@ dependencies {
     implementation ("androidx.media3:media3-exoplayer-dash:1.1.1")
     implementation ("androidx.media3:media3-ui:1.1.1")
     implementation ("androidx.media3:media3-session:1.1.1")
+    implementation("androidx.media:media:1.6.0")
 
 
     //    coroutines
@@ -110,6 +111,7 @@ dependencies {
 
 
     implementation ("com.google.accompanist:accompanist-permissions:0.30.1")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
 }
 
